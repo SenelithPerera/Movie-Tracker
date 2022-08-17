@@ -20,3 +20,18 @@
 .App-link {
   color: #09d3ac;
 }
+
+.film-title {
+  width: 145px;
+  height: 129px;
+  border-color: red;
+  border-style: groove;
+  margin-bottom: 10px;
+  float: left;
+}
+
+textarea {
+  /* width: max-content; */
+  width: 39em;
+  height: 10em;
+}
