@@ -21,13 +21,20 @@
   color: #09d3ac;
 }
 
-.film-title {
-  width: 145px;
-  height: 129px;
-  border-color: red;
-  border-style: groove;
+.film-title-lg {
+  width: 150px;
+  height: 225px;
   margin-bottom: 10px;
   float: left;
+  cursor: pointer;
+}
+
+.film-title-sm {
+  width: 70px;
+  height: 105px;
+  margin-bottom: 10px;
+  float: left;
+  cursor: pointer;
 }
 
 textarea {

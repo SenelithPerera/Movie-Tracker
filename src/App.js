@@ -1,17 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Header } from './components/header/Header';
-import { LandingPage } from './components/dashboard/LandingPage';
+import { Dashboard } from './containers/dashboard/Dashboard';
+import { FilmDetail } from './containers/filmDetail/FilmDetail';
+import { Profile } from './containers/profile/Profile';
+import { routes } from './routes';
+
+import './App.css';
+
+
 
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Header />
       <body>
-        <LandingPage />
+        <Switch>
+          <Route path={routes.dashboard} component={Dashboard} />
+          <Route path={routes.filmDetail} component={FilmDetail} />
+          <Route path={routes.profile} component={Profile} />
+        </Switch>
       </body>
-    </div>
+    </Router>
   );
 }
 
