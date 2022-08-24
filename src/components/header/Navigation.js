@@ -1,20 +1,23 @@
 import React from 'react'
-import { ListGroup } from 'react-bootstrap'
+import { MovieLogger } from '../common/movieLogger/MovieLogger'
 
 export const Navigation = () => {
   return (
-    <></>
-    // <ListGroup className="navbar-nav navbar-nav-right">
-    //   <ListGroup.Item className="nav-item dropdown">
-    //     hello
-    //   </ListGroup.Item>
+    <div style={{float:'right', display: 'flex', color: 'white', marginLeft: '33em'}}>
+        <ul>
+          <li>Senelith</li>
+        </ul>
+        <ul>
+          <li>Films</li>
+        </ul>
+        <ul>
+          <li>Lists</li>
+        </ul>
+        <ul>
+          <li><MovieLogger /></li>
+        </ul>
 
-    //   <ListGroup.Item className="nav-item dropdown">
-    //     hello2
-    //   </ListGroup.Item>
-    //   <ListGroup.Item className="nav-item dropdown">
-    //     helo 3
-    //   </ListGroup.Item>
-    // </ListGroup>
+    </div>
+
   )
 }

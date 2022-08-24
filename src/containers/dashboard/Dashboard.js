@@ -29,7 +29,7 @@ export const Dashboard = () => {
                             {mockData.popularMovies.results.map((movie, index) => {
                                 console.log(movie)
                                 return (
-                                    <FilmTile data={movie} isLarge={true} />
+                                    <FilmTile key={index} data={movie} isLarge={true} />
                                 )
                             })}
                         </div>

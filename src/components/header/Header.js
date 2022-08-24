@@ -7,8 +7,9 @@ export const Header = () => {
             <section>
                 {/* <h1 className='site-logo'>Movie Tracker</h1> */}
                 <div className='site-logo'>Movie Tracker</div>
+                <Navigation />
             </section>
-            <Navigation />
+            
         </header>
     )
 }

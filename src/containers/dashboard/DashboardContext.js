@@ -5,14 +5,14 @@ export const DashboardContext = createContext();
 
 export const DashboardProvider = (props) => {
     const [isPostBtnVisible, setPostBtnVisible] = useState(false);
-    const [postText, setPostText] = useState(null);
+    const [postText, setPostText] = useState('');
     const [postListData, setPostListData] = useState({ list: [], meta: null })
 
     useEffect(() => {
-        (async () => {
-            const response = await CommonApi.getPopularMovies({ page: 1 });
-            console.log(response)
-        })()
+        // (async () => {
+        //     const response = await CommonApi.getPopularMovies({ page: 1 });
+        //     console.log(response)
+        // })()
 
     }, [])
 

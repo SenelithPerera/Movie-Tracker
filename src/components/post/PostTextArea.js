@@ -7,7 +7,7 @@ export const PostTextArea = () => {
 
     return (
         <div>
-            <textarea style={{ width: '100%' }}value={postText} onChange={(e) => handlePostTextAreaChange(e)} placeholder='say what you want' />
+            <textarea style={{ width: '100%' }} value={postText} onChange={(e) => handlePostTextAreaChange(e)} placeholder='say what you want' />
             {isPostBtnVisible && (
                 <div>
                     <Button onClick={() => handleCancelPostBtnClick()}>Cancel</Button>

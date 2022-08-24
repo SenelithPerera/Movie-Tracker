@@ -19,13 +19,13 @@ function App() {
   return (
     <Router>
       <Header />
-      <body>
+      {/* <body> */}
         <Switch>
           <Route path={routes.dashboard} component={Dashboard} />
           <Route path={routes.filmDetail} component={FilmDetail} />
           <Route path={routes.profile} component={Profile} />
         </Switch>
-      </body>
+      {/* </body> */}
     </Router>
   );
 }

@@ -26,6 +26,7 @@ section {
   margin: 0 auto;
   position: relative;
   width: 950px;
+  display: flex;
 }
 
 .site-logo {

@@ -2,7 +2,7 @@ import React from 'react'
 import { Modal } from 'react-bootstrap';
 
 export const CommonModal = (props) => {
-    const { className, show, closeModal, size, enforceFocus, title } = props;
+    const { className, show, closeModal, size, enforceFocus, title, centered } = props;
     return (
         <Modal
             dialogClassName={className}
@@ -10,6 +10,7 @@ export const CommonModal = (props) => {
             onHide={closeModal}
             size={size}
             enforceFocus={enforceFocus}
+            centered={centered}
         >
             <Modal.Header closeButton>
                 <Modal.Title>{title}</Modal.Title>
