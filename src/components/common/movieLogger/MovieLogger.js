@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Row, Col } from 'react-bootstrap'
+import isNil from 'lodash/isNil';
 import debounce from 'lodash/debounce';
+
+import * as MovieApi from '../../../api/movieApis/MovieApi'
 import { CommonModal } from '../CommonModal/CommonModal';
 import { CustomSelect } from '../customSelect/CustomSelect';
 import { FilmTile } from '../../filmTile/FilmTile';
@@ -16,18 +19,31 @@ export const MovieLogger = () => {
     const [isMovieSelected, setIsMovieSelected] = useState(false);
     const [movieListOptions, setMovieListOptions] = useState([])
 
+    const [showSearchResults, setShowSearchResults] = useState(false);
+
 
 
     const handleMovieSelected = (movie) => {
-        console.log(movie)
         setSelectedMovie(movie)
         setIsMovieSelected(true)
+        setShowSearchResults(false)
     }
 
     const searchMovie = debounce((value) => {
-        console.log(value)
-    }, 1000)
+        setShowSearchResults(true);
+        const params = { filter: { name: value } }
+        MovieApi.searchMovie({ params })
+            .then(response => {
+                if (!isNil(response.data)) {
+                    setMovieListOptions(response.data.results.map(movie => ({ ...movie, value: movie.id, label: movie.title })))
+                } else {
+                    setMovieListOptions([])
+                }
+            })
+            .catch(err => console.log(err))
 
+    }, 1000)
+    console.log(movieListOptions);
     return (
         <>
             <Button onClick={() => setMovieLoggerModalOpen(true)}>+ Log</Button>
@@ -41,14 +57,18 @@ export const MovieLogger = () => {
                     centered
                 >
                     {!isMovieSelected ? (
-                        <CustomSelect
-                            options={options}
-                            onChange={(data) => handleMovieSelected(data)}
-                            value={selectedMovie}
-                            onKeyDown={(event) => searchMovie(event.target.value)}
-                        />
+                        // <CustomSelect
+                        //     options={movieListOptions}
+                        //     onChange={(data) => handleMovieSelected(data)}
+                        //     value={selectedMovie}
+                        //     onKeyDown={(event) => searchMovie(event.target.value)}
+                        // />
+                        <>
+                            <input type="text" onChange={(event) => searchMovie(event.target.value)} />
+                            {showSearchResults && <div><ul>{movieListOptions.map(option => <li onClick={() => handleMovieSelected(option)}>{option.label}</li>)}</ul></div>}
+                        </>
                     ) : (
-                        <MovieLogForm />
+                        <MovieLogForm movie={selectedMovie}/>
                     )}
                 </CommonModal>
             )}

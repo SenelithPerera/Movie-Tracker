@@ -4,10 +4,11 @@ import './index.css';
 import App from './App';
 import 'antd/dist/antd.css'
 import * as serviceWorker from './serviceWorker';
+import AuthProvider from './auth/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<App />);
+root.render(<AuthProvider><App /></AuthProvider>);
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 

@@ -12,7 +12,6 @@ import * as mockData from '../../helpers/MockData';
 export const Dashboard = () => {
     return (
         <DashboardProvider>
-            <div className='content'>
                 <h1>Welcome back, senelith. kcmldkcmldkfc</h1>
                 <Row>
                     <Col sm="7" md="7" lg="8" xl="8">
@@ -27,7 +26,7 @@ export const Dashboard = () => {
                     <Col sm="5" md="5" lg="4" xl="4">
                         <div>
                             {mockData.popularMovies.results.map((movie, index) => {
-                                console.log(movie)
+                                // console.log(movie)
                                 return (
                                     <FilmTile key={index} data={movie} isLarge={true} />
                                 )
@@ -35,7 +34,6 @@ export const Dashboard = () => {
                         </div>
                     </Col>
                 </Row>
-            </div>
         </DashboardProvider>
     )
 }

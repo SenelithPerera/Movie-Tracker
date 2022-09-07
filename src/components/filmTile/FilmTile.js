@@ -4,7 +4,6 @@ import { EndPointsHelper } from '../../helpers/ApiEndPointsHelper';
 
 export const FilmTile = ({ data, isLarge, isUnresponsive }) => {
   const history = useHistory();
-  console.log(data.original_title.replace(/\s/g, '-'))
   return (
     <div className={isLarge ? 'film-title-lg' : 'film-title-sm'} onClick={() => {
       if (isUnresponsive) return;

@@ -5,9 +5,7 @@ import { ProfileProvider } from './ProfileContext'
 export const Profile = () => {
     return (
         <ProfileProvider>
-            <div className='content'>
-                <ProfileHeader />
-            </div>
+            <ProfileHeader />
         </ProfileProvider>
     )
 }

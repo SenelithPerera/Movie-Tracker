@@ -30,7 +30,7 @@ const mockData = {
     "vote_count": 2894
 }
 
-export const MovieLogForm = () => {
+export const MovieLogForm = ({ movie }) => {
 
     const [isDateVisible, setDateVisible] = useState(false);
     const [watchDate, setWatchDate] = useState(new Date());
@@ -41,18 +41,18 @@ export const MovieLogForm = () => {
         rating: 0
     }
 
-    const handleOnsubmit = () => {
-
+    const handleOnsubmit = (values) => {
+        console.log(values)
     }
-    
+
     return (
         <Row>
             <Col lg="4" md="4">
-                <FilmTile data={mockData} isLarge={true} isUnresponsive />
+                <FilmTile data={movie} isLarge={true} isUnresponsive />
             </Col>
             <Col lg="8" md="8">
                 <h5>I watched</h5>
-                <h6>Prey 2022</h6>
+                <h6>{movie.title}</h6>
                 <Formik
                     initialValues={initialValues}
                     validationSchema={yup.object().shape({
@@ -67,7 +67,7 @@ export const MovieLogForm = () => {
                             <CustomDatePicker
                                 name="date"
                                 value={props.values.date}
-                                onChange={(date) => {props.setFieldValue('date', date.toLocaleDateString("en-US")); setWatchDate(date)}}
+                                onChange={(date) => { props.setFieldValue('date', date.toLocaleDateString("en-US")); setWatchDate(date) }}
                                 className="form-control mb-3"
                             />
 

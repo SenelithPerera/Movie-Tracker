@@ -18,7 +18,7 @@ export const DashboardProvider = (props) => {
 
 
     const handlePostTextAreaChange = (event) => {
-        console.log(event.target.value)
+        // console.log(event.target.value)
         if (event.target.value != "") {
             setPostBtnVisible(true);
         } else {
